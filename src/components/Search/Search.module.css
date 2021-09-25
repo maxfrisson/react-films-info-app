@@ -1,0 +1,17 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 3vw;
+}
+
+.searchInput {
+  font-size: 2rem;
+  width: 50%;
+}
+
+.searchSubmit {
+  font-size: 2rem;
+  margin-left: 10px;
+}
