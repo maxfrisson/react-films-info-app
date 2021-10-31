@@ -2,30 +2,26 @@ import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import styles from "./Search.module.css";
 import { filmAPI } from "../../api/api";
+import { Card } from "../Card/Card";
 
 interface mySearchValues {
   filmName: string;
 }
 
-interface stateTypes {
-  nameOriginal?: string;
-}
-
-let initialState: stateTypes = {}
-
 
 export const Search: React.FC = () => {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState({});
 
   const initialValues: mySearchValues = { filmName: "" };
 
   return (
+    <>
     <div className={styles.search}>
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
           filmAPI.filmProfile(values.filmName).then((response) => setState(response.data));
-          console.log(state);
+          console.log("SEARCH", state);
         }}
         >
         <Form>
@@ -40,7 +36,8 @@ export const Search: React.FC = () => {
           </button>
         </Form>
       </Formik>
-      <div>NAME: {state ? (state.nameOriginal) : null}</div>
     </div>
+      { Object.keys(state).length > 0 ? <Card state={state} /> : null}
+    </>
   );
 };

@@ -1,16 +1,31 @@
-import styles from "Card.module.css";
+import styles from "./Card.module.css";
 
-export const Card = () => {
+interface cardTypes {
+  state: stateTypes;
+}
+
+interface stateTypes {
+  nameOriginal?: string;
+  year?: string;
+  posterUrlPreview?: string;
+  description?: string;
+}
+
+export const Card: React.FC<cardTypes> = ({ state }) => {
+  console.log("CARD", state);
+
   return (
     <div className={styles.cardBody}>
       <div className={styles.cardImg}>
-        <img src="" alt="" />
+        <img src={state.posterUrlPreview} alt="" />
       </div>
-      <div className={styles.cardFilmName}></div>
-      <div className={styles.cardRatingKinopoisk}></div>
-      <div className={styles.cardFilmYear}></div>
-      <div className={styles.cardFilmGenre}></div>
-      <div className={styles.cardFilmGenre}></div>
+      <div className={styles.cardInfo}>
+        <div className={styles.cardName}>{state.nameOriginal}</div>
+        <div className={styles.cardFilmYear}>{state.year}</div>
+        <div className={styles.cardFilmDescription}>{state.description}</div>
+
+        <div className={styles.cardFilmGenre}></div>
+      </div>
     </div>
   );
 };

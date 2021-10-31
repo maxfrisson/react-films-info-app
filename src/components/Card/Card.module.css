@@ -1,4 +1,18 @@
 .cardBody {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cardImg {
+  margin: 25px;
+}
+
+.cardInfo {
+  max-width: 500px;
+  margin: 25px;
+  text-align: center;
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
