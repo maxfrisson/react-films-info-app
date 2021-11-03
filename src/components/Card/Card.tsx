@@ -9,6 +9,7 @@ interface stateTypes {
   year?: string;
   posterUrlPreview?: string;
   description?: string;
+  genre?: string;
 }
 
 export const Card: React.FC<cardTypes> = ({ state }) => {
@@ -24,7 +25,7 @@ export const Card: React.FC<cardTypes> = ({ state }) => {
         <div className={styles.cardFilmYear}>{state.year}</div>
         <div className={styles.cardFilmDescription}>{state.description}</div>
 
-        <div className={styles.cardFilmGenre}></div>
+        <div className={styles.cardFilmGenre}>{state.genre}</div>
       </div>
     </div>
   );
