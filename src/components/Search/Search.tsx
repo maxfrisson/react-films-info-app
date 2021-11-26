@@ -8,36 +8,37 @@ interface mySearchValues {
   filmName: string;
 }
 
-
 export const Search: React.FC = () => {
-  const [state, setState] = useState({});
-
+  const [state, setState] = useState({} as any);
+  
   const initialValues: mySearchValues = { filmName: "" };
 
   return (
     <>
-    <div className={styles.search}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => {
-          filmAPI.filmProfile(values.filmName).then((response) => setState(response.data));
-          console.log("SEARCH", state);
-        }}
+      <div className={styles.search}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={(values) => {
+            filmAPI.getFilmsByKeyword(values.filmName).then((response) => setState(response.data));
+            console.log("SEARCH BY KEYWORD", state);
+          }}
         >
-        <Form>
-          <Field
-            id="filmName"
-            name="filmName"
-            placeholder="Film Name"
-            className={styles.searchInput}
-          />
-          <button className={styles.searchSubmit} type="submit">
-            Submit
-          </button>
-        </Form>
-      </Formik>
-    </div>
-      { Object.keys(state).length > 0 ? <Card state={state} /> : null}
+          <Form>
+            <Field
+              id="filmName"
+              name="filmName"
+              placeholder="Film Name"
+              className={styles.searchInput}
+            />
+            <button className={styles.searchSubmit} type="submit">
+              Submit
+            </button>
+          </Form>
+        </Formik>
+      </div>
+      <div className={styles.results}>
+      {Object.keys(state).length > 0 ? state.films.map((item: any, i: number) => <Card key={i} state={state.films[i]}/>) : null}
+      </div>
     </>
   );
 };

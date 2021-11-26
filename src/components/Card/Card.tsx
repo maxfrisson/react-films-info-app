@@ -1,7 +1,7 @@
 import styles from "./Card.module.css";
 
 interface cardTypes {
-  state: stateTypes;
+  state: stateTypes | any;
 }
 
 interface stateTypes {
@@ -21,7 +21,7 @@ export const Card: React.FC<cardTypes> = ({ state }) => {
         <img src={state.posterUrlPreview} alt="" />
       </div>
       <div className={styles.cardInfo}>
-        <div className={styles.cardName}>{state.nameOriginal}</div>
+        <div className={styles.cardName}>{state.nameRu}</div>
         <div className={styles.cardFilmYear}>{state.year}</div>
         <div className={styles.cardFilmDescription}>{state.description}</div>
 
