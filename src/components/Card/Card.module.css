@@ -1,20 +1,28 @@
 .cardBody {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   border: 2px solid #fff;
+  border-radius: 5px;
   flex-basis: 33%;
+}
+
+.cardBody:nth-child(1) {
+  flex-direction: row;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-bottom: 3%;
 }
 
 .cardImg {
   margin: 25px;
   display: flex;
   object-fit: cover;
-  min-width: 50%;
 }
 
 .cardImg img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -23,6 +31,7 @@
 
 .cardInfo {
   max-width: 500px;
+  height: 100%;
   margin: 25px;
   text-align: center;
   display: flex;
@@ -31,20 +40,26 @@
   align-items: center;
 }
 
+.cardFilmName {
+  font-size: 2rem;
+}
+
 .cardFilmDescription {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -moz-box;
   -moz-box-orient: vertical;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
-  line-clamp: 10;
+  -webkit-line-clamp: 7;
+  line-clamp: 7;
   -webkit-box-orient: vertical;
   box-orient: vertical;
 }
 
-@media screen and (max-width: 950px) {
-  .cardBody {
+@media screen and (max-width: 800px) {
+  .cardBody:nth-child(1) {
     flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }

@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import styles from "./Search.module.css";
 import { filmAPI } from "../../api/api";
-import { Card } from "../Card/Card";
+import { Card, stateTypes } from "../Card/Card";
 
 interface mySearchValues {
   filmName: string;
 }
+console.log(1235);
 
 export const Search: React.FC = () => {
-  const [state, setState] = useState({} as any);
-  
+  const [state, setState] = useState({} as stateTypes);
+
   const initialValues: mySearchValues = { filmName: "" };
 
   return (
@@ -37,7 +38,11 @@ export const Search: React.FC = () => {
         </Formik>
       </div>
       <div className={styles.results}>
-      {Object.keys(state).length > 0 ? state.films.map((item: any, i: number) => <Card key={i} state={state.films[i]}/>) : null}
+        {Object.keys(state).length > 0
+          ? state.films
+              .map((item: any, i: number) => <Card key={i} state={state.films[i]} />)
+              .filter((x: any, i: number) => !!state.films[i].description)
+          : null}
       </div>
     </>
   );
