@@ -1,7 +1,7 @@
 
 import { Search } from "../components/Search/Search";
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <div>
       <Search />

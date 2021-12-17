@@ -1,0 +1,33 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1vw;
+}
+
+.searchSubmit {
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 10px;
+  transition: 0.5s;
+}
+
+.searchSubmit:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: 33%;
+  grid-template-rows: auto;
+  grid-gap: 15px;
+  margin: 2%;
+}
+
+@media screen and (max-width: 800px) {
+  .results {
+    grid-template-columns: 50% 50%;
+  }
+}

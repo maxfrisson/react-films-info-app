@@ -7,7 +7,6 @@ import { Card, stateTypes } from "../Card/Card";
 interface mySearchValues {
   filmName: string;
 }
-console.log(1235);
 
 export const Search: React.FC = () => {
   const [state, setState] = useState({} as stateTypes);

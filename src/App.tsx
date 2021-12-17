@@ -1,16 +1,16 @@
 import { Route } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
-import { Home } from "./pages/Home";
-import { Random } from "./pages/Random";
+import { HomePage } from "./pages/HomePage";
+import { RandomFilmPage } from "./pages/RandomFilmPage";
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
-        <Route path="/" component={Home} exact />
-        <Route path="/random" component={Random} exact />
+        <Route path="/" component={HomePage} exact />
+        <Route path="/random" component={RandomFilmPage} exact />
       </div>
     </div>
   );
