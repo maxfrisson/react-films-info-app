@@ -8,8 +8,8 @@ export const instance = axios.create({
   },
 });
 
-export const filmAPI = {
-  getFilmById(id: number | string) {
+export const filmAPI =  {
+  getFilmById(id: number) {
     return instance.get(`api/v2.2/films/${id}`);
   },
   getFilmsByKeyword(keyword: number | string) {
